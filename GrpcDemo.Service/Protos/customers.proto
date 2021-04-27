@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcDemo.Service";
+
+service Customer {
+    rpc GetCustomer (CustomerFindoneModel) returns (CustomerModel);
+    rpc GetNewCustomers (CustomerFindAllModel) returns (stream CustomerModel);
+}
+
+message CustomerFindoneModel {
+    int32 userId = 1;
+}
+
+message CustomerFindAllModel {
+
+}
+
+// 1,2,3 etc are for sort order
+message CustomerModel {
+    string firstName = 1;
+    string lastName = 2;
+    string emailAddress = 3;
+    bool isLive = 4;
+    int32 age = 33;
+}
